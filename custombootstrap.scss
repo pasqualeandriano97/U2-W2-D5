@@ -1,0 +1,54 @@
+@import "scss/functions";
+@import "scss/variables";
+
+$dark: $gray-900;
+
+$position-values2: (
+  0: 0,
+  25: 25%,
+  50: 50%,
+  100: 100%,
+);
+$position-values: map-merge($position-values, $position-values2);
+@import "scss/variables-dark";
+@import "scss/maps";
+@import "scss/mixins";
+@import "scss/utilities";
+
+$utilities: map-merge(
+  $utilities,
+  (
+    "width":
+      map-merge(
+        map-get($utilities, "width"),
+        (
+          values:
+            map-merge(
+              map-get(map-get($utilities, "width"), "values"),
+              (
+                40: 40%,
+              )
+            ),
+        )
+      ),
+  )
+);
+@import "scss/utilities/api";
+
+@import "./scss/bootstrap.scss";
+
+.w-50 {
+  opacity: 0.6;
+  h6 {
+    margin-bottom: 1em;
+    font-weight: 400;
+  }
+}
+
+button {
+  h5 {
+    @media screen and (max-width: 992px) {
+      font-size: 0.75em;
+    }
+  }
+}
